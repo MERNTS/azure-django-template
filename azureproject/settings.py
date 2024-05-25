@@ -75,31 +75,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'azureproject.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-# To use sqllite as the database engine,
-#   uncomment the following block and comment out the Postgres section below
-
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-# }
-
-
-# Configure Postgres database for local development
-#   Set these environment variables in the .env file for this project.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DBNAME'),
-        'HOST': os.environ.get('DBHOST'),
-        'USER': os.environ.get('DBUSER'),
-        'PASSWORD': os.environ.get('DBPASS'),
+        'NAME': 'defaultdb',
+        'HOST': 'momento-momento.i.aivencloud.com',
+        'PORT': '23450',
+        'USER': 'avnadmin',
+        'PASSWORD': os.environ['PG_PWD_MM'],
+
     }
 }
+
 
 
 # Password validation
